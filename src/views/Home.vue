@@ -106,8 +106,8 @@ export default {
         url: 'http://krapipl.imumk.ru:8082/api/mobilev1/update',
         data: {data: ''}
       });
+
       this.items = getItems.data.items;
-      this.tempItems = this.items;
       this.subjectsList();
       this.genresList();
       this.gradesList();
