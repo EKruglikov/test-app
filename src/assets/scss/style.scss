@@ -1,0 +1,219 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+input, select, textarea, button{font-family: inherit;}
+//Colors
+$black: #3c3c3b;
+
+body{
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: $black;
+}
+//.vue-logo{margin: 0 auto;display: block;}
+
+.container{max-width: 1000px;margin: 0 auto;padding: 0 10px;}
+
+.flex{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+//UI ELEMENTS
+.ui{
+  &-button{
+    background: linear-gradient(#00c0ff, #00c0ff) !important;
+    text-decoration: none;
+  }
+
+  &-input,
+  &-select{
+    padding: .3em .5em;
+    height: 2.3em;
+    background-color: #fff;
+    border: 1px solid #706f6f;
+    border-radius: 6px;
+    outline: none;
+
+    &:focus{border-color: #129fea;}
+  }
+
+  &-toggle {
+    display: inline-flex;
+    align-items: center;
+    margin: 15px 0;
+
+    & > span{
+      content: '';
+      display: inline-block;
+      width: 50px;
+      height: 23px;
+      background-color: #eee;
+      border-radius: 10px;
+      border: 1px solid #bbb;
+      position: relative;
+      margin: 0px 5px;
+      cursor: pointer;
+
+      &:before{
+        content: '';
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        width: 18px;
+        height: 18px;
+        background-color: $black;
+        border-radius: 50%;
+        transition: all .2s ease;
+      }
+
+      &.is-active{
+        &:before{left: calc(100% - 20px); background-color: deepskyblue;}
+      }
+    }
+    & + input[type="checkbox"]{display: none;}
+  }
+}
+//Header
+.header{
+  padding: 0 20px;
+  height: 73px;
+  background-color: #fff;
+  box-shadow: 0 2px rgba(0, 0, 0, 0.2);
+  &__grid{align-items: center;}
+
+  &-hamburger{
+    margin-left: 10px;
+    width: 35px;
+    height: 24px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+
+    span{
+      position: absolute;
+      top: 2px;
+      width: 100%;
+      height: 4px;
+      background-color: #00c1ff;
+      &:before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        top: 10px;
+        background-color: #00c1ff;
+      }
+      &:after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        top: 20px;
+        background-color: #00c1ff;
+      }
+    }
+  }
+
+  &__nav{margin-left: auto;}
+
+}
+.nav{
+  &__button{
+    padding: 8px 20px 11px;
+    border-radius: 10px;
+    font-size: 17.5px;
+    font-weight: 300;
+    letter-spacing: .03em;
+    width: 145px;
+    color: #fff;
+    margin: 0 3px;
+    display: inline-block;
+    text-align: center;
+
+    &:hover{background: linear-gradient(#00bbeb, #004fe5) !important;}
+  }
+}
+
+//Sections
+.section{
+  padding-bottom: 20px;
+  &__title{
+    font-size: 36px;
+    font-weight: 300;
+    display: block;
+    text-align: center;
+    margin: 0.67em 0;
+  }
+}
+
+
+//Filters
+.filters{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > select,
+  & > input{flex: 1;}
+
+  & > * + * {margin-left: 20px;}
+  &__search{
+    background: transparent url("assets/images/icon-search-25.png") center center no-repeat;
+    width: 32px;
+    height: 32px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+  }
+}
+
+
+//Витрина
+.showcase{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 60px;
+
+  &-item{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 15px 55px;
+    width: 170px;
+    min-height: 260px;
+    border: solid 1px #b5b5b5;
+    border-radius: 10px;
+    flex-basis: calc(20% - 30px);
+    width: calc(20% - 30px);
+
+    &__image{
+      overflow: hidden;
+      height: 134px;
+
+      img{object-fit: cover;width: 100%;height: 100%;}
+    }
+
+    &__info{
+      padding: 10px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    &__genre{font-size: 11px;margin: 5px 0 10px;}
+    &__price{
+      margin-top: auto;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    &__more{
+      color: #00c1ff;
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      &:hover{text-decoration: underline;}
+    }
+
+  }
+}
