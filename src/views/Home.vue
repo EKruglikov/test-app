@@ -69,15 +69,19 @@
       </div>
     </section>
 
+    <Footer></Footer>
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
 export default {
   name: 'home',
-  components: { Header },
+  components: { Header, Footer},
   data () {
     return {
       filter: {subject: '', genre: '', grade: '', searchString: ''},
@@ -93,6 +97,8 @@ export default {
       return this.items
           .filter((item) => { return this.filter.subject == '' || item.subject  == this.filter.subject })
           .filter((item) => { return this.filter.genre == '' || item.genre  == this.filter.genre })
+
+          //TODO: Сделать промежуточный поиск по классам [8,9,10]
           .filter((item) => { return this.filter.grade == '' || item.grade  == this.filter.grade })
           .filter((item) => {
             if (this.filter.searchString == '' || this.searchByString(item)) { return item; }
@@ -110,7 +116,6 @@ export default {
       this.items = getItems.data.items;
       this.subjectsList();
       this.genresList();
-      this.gradesList();
 
       console.log('ITEMS: ', getItems.data);
     },
@@ -147,24 +152,6 @@ export default {
       this.items.forEach((item, index) => {
         if (!this.genres.includes(item.genre)) {
           this.genres.push(item.genre);
-        }
-      });
-    },
-    gradesList() {
-      this.items.forEach((item, index) => {
-        let intGrade = parseInt(item.grade);
-        if (!this.grades.includes(intGrade)) {
-          if (!item.grade.match(/\;/)){
-            this.grades.push(intGrade);
-          } else {
-            let grades = item.grade.split(';');
-            for(let grade of grades) {
-              let intSubGrade = parseInt(grade);
-              if (!this.grades.includes(intSubGrade)) {
-                this.grades.push(intSubGrade);
-              }
-            }
-          }
         }
       });
     },

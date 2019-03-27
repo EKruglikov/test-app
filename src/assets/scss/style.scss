@@ -1,5 +1,7 @@
 *{margin: 0;padding: 0;box-sizing: border-box;}
 input, select, textarea, button{font-family: inherit;}
+img{max-width: 100%;}
+a{color: inherit;}
 //Colors
 $black: #3c3c3b;
 
@@ -180,13 +182,12 @@ body{
     flex-direction: column;
     overflow: hidden;
     margin: 0 15px 55px;
-    width: 170px;
     min-height: 260px;
     border: solid 1px #b5b5b5;
     border-radius: 10px;
     flex-basis: calc(20% - 30px);
     width: calc(20% - 30px);
-
+    min-width: 160px;
     &__image{
       overflow: hidden;
       height: 134px;
@@ -217,3 +218,51 @@ body{
 
   }
 }
+
+
+
+//Footer
+.footer{
+  background-color: #3c3c3c;
+  color: #fff;
+
+  &__grid{justify-content: space-between;align-items: center;padding: 10px;}
+  &__social {
+    a{
+      width: 29px;
+      height: 29px;
+      display: inline-block;
+      background: url(assets/images/social_links.svg) 0 0 no-repeat;
+      margin: 0 5px;
+
+      &.vk{
+        background-position: -37px 0;
+      }
+      &.fb{
+        background-position: -74px 0;
+      }
+      &.inst{
+        background-position: -111px 0;
+      }
+    }
+  }
+
+  &__content{
+    a{
+      font-size: 12px;
+      text-decoration: none;
+      &:hover{text-decoration: underline;}
+    }
+    p {
+      color: #fff;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 1em;
+      margin: 4px 0;
+    }
+  }
+  .col-right{text-align: right;}
+}
+
+
+@import "./media";
